@@ -1,5 +1,4 @@
-﻿//using GoogleTranslateTests;
-using GoogleTranslateTests.PageObjects;
+﻿using GoogleTranslateTests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,21 +14,10 @@ namespace GoogleTranslateTests
     {
         protected IWebDriver _webDriver;
 
-        //[OneTimeSetUp]
-        //protected void BeforeAllTests()
-        //{
-        //    _webDriver = new ChromeDriver();
-        //}
-        //[OneTimeTearDown]
-        //protected void AfterAllTests()
-        //{
-            
-        //}
-
         [TearDown]
         protected void AfterEach()
         {
-            //_webDriver.Quit();
+            _webDriver.Quit();
         }
         [SetUp]
         protected void BeforeEach()
@@ -38,7 +26,6 @@ namespace GoogleTranslateTests
             _webDriver.Manage().Cookies.DeleteAllCookies();
             _webDriver.Manage().Window.Maximize();
             _webDriver.Navigate().GoToUrl(TestSettings.hostPrefixEnToUk);
-            Expectation.LocateUrl(_webDriver, TestSettings.locationEnToUk);
         }
     }
 }

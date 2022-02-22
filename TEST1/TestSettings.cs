@@ -9,13 +9,12 @@ namespace GoogleTranslateTests
     public class TestSettings
     {
         public static string hostPrefixEnToUk = "https://translate.google.com/?sl=en&tl=uk&op=translate";
-        public static string locationEnToUk = "https://translate.google.com/?sl=en&tl=uk&op=translate";
         public static string hostPrefixUaToEn = "https://translate.google.com/?sl=uk&tl=en&op=translate";
         public static string twitterUrl = "https://twitter.com/intent/tweet?text=%D0%A7%D0%B0%D1%88%D0%BA%D0%B0";
 
-        public const string inpFieldValueEn = "Cup";
+        public const string inpFieldValueEn = "cup";
         public const string outputFieldExpectedEn = "Cup";
-        public const string outputFieldExpectedUa = "Чашка";
+        public const string outputFieldExpectedUa = "чашка";
         public const string inpFieldValueUa = "Чашка";
         public const string emptyField = "";
         public const string login = "testusersg810@gmail.com";

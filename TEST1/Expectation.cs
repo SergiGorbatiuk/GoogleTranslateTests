@@ -11,17 +11,6 @@ namespace GoogleTranslateTests
 {
     public static class Expectation
     {
-        public static void LocateUrl(IWebDriver webDriver, string url)
-        {
-            try
-            {
-                new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.UrlContains(url));
-            }
-            catch (WebDriverTimeoutException)
-            {
-                throw new NotFoundException($"Unable to find location {url}");
-            }
-        }
         public static void WaitForElementVisible(IWebDriver webDriver, By locator, int seconds = 5)
         {
             new WebDriverWait(webDriver, TimeSpan.FromSeconds(seconds)).Until(ExpectedConditions.ElementIsVisible(locator));

@@ -56,7 +56,8 @@ namespace GoogleTranslateTests.PageObjects
         private readonly By _contributeButton = By.XPath("//a[@href='./contribute']");
         private readonly By _contributeArea = By.XPath("//div[@class='oCxMfe']");
         private readonly By _closeContributeButton = By.XPath("//button[contains(@class,'VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ INImOe clr7zd')]");
-
+        private readonly By _sendFeedbackButton = By.XPath("//div[@class='a88hkc']");
+        private readonly By _feedbackCancelButton = By.XPath("//*[contains(text(),'ОТМЕНА')]");
 
         public MainPageObjects(IWebDriver webDriver)
         {
