@@ -63,7 +63,7 @@ namespace GoogleTranslateTests.PageObjects
             _webDriver = webDriver;
         }
 
-        public string TranslateToUkr(string inputField)
+        public string Translate(string inputField)
         {
             _webDriver.FindElement(_textInputField).SendKeys(inputField);
             Expectation.WaitForElementVisible(_webDriver, _textOutputField);
@@ -86,6 +86,11 @@ namespace GoogleTranslateTests.PageObjects
         public int ReturnCounterValue()
         {
             return Convert.ToInt32(_webDriver.FindElement(_charCounterValue).Text);
+        }
+
+        public void ExchangeLanguage()
+        {
+            _webDriver.FindElement(_exchangeLanguageButton).Click();
         }
 
         public string GetUrlAfterLangExchange()

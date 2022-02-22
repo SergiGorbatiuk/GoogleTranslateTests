@@ -14,9 +14,9 @@ namespace GoogleTranslateTests
         public void CorrectEnToUa()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
-            Assert.AreEqual(TestSettings.outputFieldExpected, actualResult, "Incorrect translation");
+            Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult, "Incorrect translation");
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace GoogleTranslateTests
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
             string randomString = GenerateRandomData.GenerateRandomEnString(TestSettings.numberForRandomString);
-            string actualResult = mainPageObjects.TranslateToUkr(randomString);
+            string actualResult = mainPageObjects.Translate(randomString);
 
             Assert.AreEqual(randomString, actualResult);
         }
@@ -36,7 +36,7 @@ namespace GoogleTranslateTests
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
             string randomString = GenerateRandomData.GenerateRandomNumber(TestSettings.numberForRandomStringOver5000);
-            string actualResult = mainPageObjects.TranslateToUkr(randomString);
+            string actualResult = mainPageObjects.Translate(randomString);
 
             Assert.IsTrue(mainPageObjects.Check5000CharField());
         }
@@ -46,7 +46,7 @@ namespace GoogleTranslateTests
         public void UaTextIntoEnInput()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueUa);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueUa);
 
             Assert.AreEqual(TestSettings.inpFieldValueUa, actualResult);
         }
@@ -57,7 +57,7 @@ namespace GoogleTranslateTests
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
             string randomString = GenerateRandomData.GenerateRandomEnString(TestSettings.numberForRandomString);
-            string actualResult = mainPageObjects.TranslateToUkr(randomString);
+            string actualResult = mainPageObjects.Translate(randomString);
 
             Assert.AreEqual(TestSettings.numberForRandomString, mainPageObjects.ReturnCounterValue());
         }
@@ -77,7 +77,7 @@ namespace GoogleTranslateTests
         public void ClearInputFieldIconCheck()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
             string inputFieldValue = mainPageObjects.ClearInputField();
 
             Assert.AreEqual(TestSettings.emptyField, inputFieldValue);
@@ -88,7 +88,7 @@ namespace GoogleTranslateTests
         public void CheckDefinitionArea()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckDefinitionArea());
         }
@@ -98,7 +98,7 @@ namespace GoogleTranslateTests
         public void CheckMoreDefinitionsButton()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckMoreDefinitionsButton());
         }
@@ -108,7 +108,7 @@ namespace GoogleTranslateTests
         public void CheckLessDefinitionsButton()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckShowLessDefinitionsButton());
         }
@@ -118,7 +118,7 @@ namespace GoogleTranslateTests
         public void CheckExamplesArea()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckExamplesArea());
         }
@@ -128,7 +128,7 @@ namespace GoogleTranslateTests
         public void CheckMoreExamplesButton()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckMoreExamplesButton());
         }
@@ -138,7 +138,7 @@ namespace GoogleTranslateTests
         public void CheckLessExamplesButton()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckShowLessExamplesButton());
         }
@@ -168,7 +168,7 @@ namespace GoogleTranslateTests
             var mainPageObjects = new MainPageObjects(_webDriver);
             string actualResult = mainPageObjects.TranslateToUkrVirtKeyboard();
 
-            Assert.AreEqual(TestSettings.outputFieldExpected, actualResult, "Incorrect translation");
+            Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult, "Incorrect translation");
         }
 
         [Test]
@@ -176,7 +176,7 @@ namespace GoogleTranslateTests
         public void CheckSaveTranslationButton()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsFalse(mainPageObjects.SaveTranslation());
         }
@@ -188,7 +188,7 @@ namespace GoogleTranslateTests
             var mainPageObjects = new MainPageObjects(_webDriver);
             string actualResult = mainPageObjects.CopyTranslation(TestSettings.inpFieldValueEn);
 
-            Assert.AreEqual(TestSettings.outputFieldExpected, actualResult, "Incorrect translation");
+            Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult, "Incorrect translation");
         }
 
         [Test]
@@ -196,7 +196,7 @@ namespace GoogleTranslateTests
         public void CheckEvaluateTranslationArea()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.IsTrue(mainPageObjects.CheckEvaluateTranslationArea());
         }
@@ -206,7 +206,7 @@ namespace GoogleTranslateTests
         public void CheckSendTranslationTwitter()
         {
             var mainPageObjects = new MainPageObjects(_webDriver);
-            string actualResult = mainPageObjects.TranslateToUkr(TestSettings.inpFieldValueEn);
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
 
             Assert.AreEqual(TestSettings.twitterUrl,mainPageObjects.CheckSendTranslationArea());
         }
@@ -247,6 +247,17 @@ namespace GoogleTranslateTests
             mainPageObjects.Login();
 
             Assert.IsFalse(mainPageObjects.Contribute());
+        }
+
+        [Test]
+        [Description("UA to EN.Correct translation")]
+        public void CorrectUaToEn()
+        {
+            var mainPageObjects = new MainPageObjects(_webDriver);
+            mainPageObjects.ExchangeLanguage();
+            string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueUa);
+
+            Assert.AreEqual(TestSettings.outputFieldExpectedEn, actualResult, "Incorrect translation");
         }
     }
 }

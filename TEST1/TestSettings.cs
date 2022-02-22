@@ -14,7 +14,8 @@ namespace GoogleTranslateTests
         public static string twitterUrl = "https://twitter.com/intent/tweet?text=%D0%A7%D0%B0%D1%88%D0%BA%D0%B0";
 
         public const string inpFieldValueEn = "Cup";
-        public const string outputFieldExpected = "Чашка";
+        public const string outputFieldExpectedEn = "Cup";
+        public const string outputFieldExpectedUa = "Чашка";
         public const string inpFieldValueUa = "Чашка";
         public const string emptyField = "";
         public const string login = "testusersg810@gmail.com";

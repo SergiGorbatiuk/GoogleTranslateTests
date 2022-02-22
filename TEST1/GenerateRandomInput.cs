@@ -51,7 +51,7 @@ namespace GoogleTranslateTests
                 data += array[i];
             }
 
-            return data.ToLower();
+            return data;
         }
     }
 }
