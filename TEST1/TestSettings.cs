@@ -10,12 +10,16 @@ namespace GoogleTranslateTests
     {
         public static string hostPrefixEnToUk = "https://translate.google.com/?sl=en&tl=uk&op=translate";
         public static string hostPrefixUaToEn = "https://translate.google.com/?sl=uk&tl=en&op=translate";
-        public static string twitterUrl = "https://twitter.com/intent/tweet?text=%D0%A7%D0%B0%D1%88%D0%BA%D0%B0";
+        public static string twitterUrl = "https://twitter.com/intent/tweet?text";
+        public static string aboutGoogleTranslateUrl = "https://translate.google.com/about/?hl=ru";
+        public static string rulesAndPrinciplesUrl = "https://policies.google.com/?hl=ru";
+        public static string supportUrl = "https://support.google.com/translate/?hl=ru#topic=7011755";
+        public static string aboutGoogleUrl = "https://about.google/?hl=ru";
 
         public const string inpFieldValueEn = "cup";
-        public const string outputFieldExpectedEn = "Cup";
+        public const string outputFieldExpectedEn = "cup";
         public const string outputFieldExpectedUa = "чашка";
-        public const string inpFieldValueUa = "Чашка";
+        public const string inpFieldValueUa = "чашка";
         public const string emptyField = "";
         public const string login = "testusersg810@gmail.com";
         public const string password = "<erjnhtqk2022";

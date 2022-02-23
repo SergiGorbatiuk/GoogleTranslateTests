@@ -30,9 +30,9 @@ namespace GoogleTranslateTests.PageObjects
         private readonly By _turnOnVirtKeyboardButton = By.XPath("//span[@class='ita-kd-img ita-icon-0 ita-kd-icon ita-kd-icon-span']");
         private readonly By _virtKeyboardArea = By.XPath("//div[@id='kbd']");
         private readonly By _virtKeyboardInputShift = By.XPath("//button[@id='K16']");
-        private readonly By _virtKeyboardInputC = By.XPath("//button[@id='K67']");
-        private readonly By _virtKeyboardInputU = By.XPath("//button[@id='K85']");
-        private readonly By _virtKeyboardInputP = By.XPath("//button[@id='K80']");
+        private readonly By _virtKeyboardEnInputC = By.XPath("//button[@id='K67']");
+        private readonly By _virtKeyboardEnInputU = By.XPath("//button[@id='K85']");
+        private readonly By _virtKeyboardEnInputP = By.XPath("//button[@id='K80']");
         private readonly By _saveTranslationButton = By.XPath("//button[@jsname='NakZHc']");
         private readonly By _saveTranslationDialogue = By.XPath("//div[@class='VfPpkd-P5QLlc']");
         private readonly By _saveTranslationDialogueCancelButton = By.XPath("//button[@data-mdc-dialog-action='Cancel']");
@@ -56,8 +56,18 @@ namespace GoogleTranslateTests.PageObjects
         private readonly By _contributeButton = By.XPath("//a[@href='./contribute']");
         private readonly By _contributeArea = By.XPath("//div[@class='oCxMfe']");
         private readonly By _closeContributeButton = By.XPath("//button[contains(@class,'VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ INImOe clr7zd')]");
-        private readonly By _sendFeedbackButton = By.XPath("//div[@class='a88hkc']");
-        private readonly By _feedbackCancelButton = By.XPath("//*[contains(text(),'ОТМЕНА')]");
+        private readonly By _textButton = By.XPath("//button[contains(@class,'Rj2Mlf OLiIxf PDpWxe irkilc')]");
+        private readonly By _mainMenuButton = By.XPath("//div[@class='gb_xc']");
+        private readonly By _aboutGoogleTranslateButton = By.XPath("//a[@jsname='wNMsOe']");
+        private readonly By _rulesAndPrinciplesButton = By.XPath("//a[@jsname='abkpZe']");
+        private readonly By _supportButton = By.XPath("//a[@jsname='h9d3hd']");
+        private readonly By _aboutGoogleButton = By.XPath("//a[@jsname='MMRVdf']");
+        private readonly By _chooseInputTypeDropdown = By.XPath("//a[@class='ita-kd-icon-button ita-kd-dropdown ita-kd-right']");
+        private readonly By _inputUaVirtKeyboardButton = By.XPath("//*[contains(text(),'Украинский')][1]");
+        private readonly By _virtKeyboardInputUaCh = By.XPath("//button[@id='K88']");
+        private readonly By _virtKeyboardInputUaA = By.XPath("//button[@id='K70']");
+        private readonly By _virtKeyboardInputUaSh = By.XPath("//button[@id='K73']");
+        private readonly By _virtKeyboardInputUaK = By.XPath("//button[@id='K82']");
 
         public MainPageObjects(IWebDriver webDriver)
         {
@@ -71,7 +81,7 @@ namespace GoogleTranslateTests.PageObjects
             return _webDriver.FindElement(_textOutputField).Text;
         }
 
-        public bool Check5000CharField()
+        public bool InputField5000Chars()
         {
             try
             {
@@ -84,17 +94,17 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public int ReturnCounterValue()
+        public int CounterValue()
         {
             return Convert.ToInt32(_webDriver.FindElement(_charCounterValue).Text);
         }
 
-        public void ExchangeLanguage()
+        public void ExchangeLanguageButton()
         {
             _webDriver.FindElement(_exchangeLanguageButton).Click();
         }
 
-        public string GetUrlAfterLangExchange()
+        public string UrlAfterLangExchange()
         {
             _webDriver.FindElement(_exchangeLanguageButton).Click();
             return _webDriver.Url;
@@ -107,7 +117,7 @@ namespace GoogleTranslateTests.PageObjects
             return _webDriver.FindElement(_textInputField).Text;
         }
 
-        public bool CheckDefinitionArea()
+        public bool DefinitionArea()
         {
             try
             {
@@ -120,7 +130,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckMoreDefinitionsButton()
+        public bool ShowMoreDefinitionsButton()
         {
             try
             {
@@ -133,7 +143,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckShowLessDefinitionsButton()
+        public bool ShowLessDefinitionsButton()
         {
             try
             {
@@ -147,7 +157,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckExamplesArea()
+        public bool ExamplesArea()
         {
             try
             {
@@ -160,7 +170,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckMoreExamplesButton()
+        public bool ShowMoreExamplesButton()
         {
             try
             {
@@ -173,7 +183,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckShowLessExamplesButton()
+        public bool ShowLessExamplesButton()
         {
             try
             {
@@ -187,7 +197,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckDocumentsButton()
+        public bool DocumentsButton()
         {
             try
             {
@@ -202,7 +212,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool CheckVirtKeyBoardOnButton()
+        public bool VirtKeyBoardOnButton()
         {
             try
             {
@@ -222,15 +232,14 @@ namespace GoogleTranslateTests.PageObjects
         {
             Expectation.WaitForElementClickable(_webDriver, _turnOnVirtKeyboardButton);
             _webDriver.FindElement(_turnOnVirtKeyboardButton).Click();
-            _webDriver.FindElement(_virtKeyboardInputShift).Click();
-            _webDriver.FindElement(_virtKeyboardInputC).Click();
-            _webDriver.FindElement(_virtKeyboardInputU).Click();
-            _webDriver.FindElement(_virtKeyboardInputP).Click();
+            _webDriver.FindElement(_virtKeyboardEnInputC).Click();
+            _webDriver.FindElement(_virtKeyboardEnInputU).Click();
+            _webDriver.FindElement(_virtKeyboardEnInputP).Click();
             Expectation.WaitForElementVisible(_webDriver, _textOutputField);
             return _webDriver.FindElement(_textOutputField).Text;
         }
 
-        public bool SaveTranslation()
+        public bool SaveTranslationButton()
         {
             try
             {
@@ -249,7 +258,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public string CopyTranslation(string inputField)
+        public string CopyTranslationButton(string inputField)
         {
             _webDriver.FindElement(_textInputField).SendKeys(inputField);
             Expectation.WaitForElementClickable(_webDriver, _copyTranslationButton);
@@ -260,7 +269,7 @@ namespace GoogleTranslateTests.PageObjects
             return _webDriver.FindElement(_textOutputField).Text;
         }
 
-        public bool CheckEvaluateTranslationArea()
+        public bool EvaluateTranslationArea()
         {
             try
             {
@@ -276,7 +285,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public string CheckSendTranslationArea()
+        public string SendTranslationViaTwitter()
         {
             Expectation.WaitForElementClickable(_webDriver, _sendTranslationButton);
             _webDriver.FindElement(_sendTranslationButton).Click();
@@ -287,7 +296,7 @@ namespace GoogleTranslateTests.PageObjects
             return _webDriver.Url;
         }
 
-        public bool CheckHistoryArea()
+        public bool HistoryArea()
         {
             try
             {
@@ -305,7 +314,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool Login()
+        public bool LoginButton()
         {
             try
             {
@@ -327,7 +336,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool SavedTranslations()
+        public bool SavedTranslationsButton()
         {
             try
             {
@@ -345,7 +354,7 @@ namespace GoogleTranslateTests.PageObjects
             }
         }
 
-        public bool Contribute()
+        public bool ContributeButton()
         {
             try
             {
@@ -361,6 +370,83 @@ namespace GoogleTranslateTests.PageObjects
             {
                 return false;
             }
+        }
+
+        public bool InputIntoTranslationField(string text)
+        {
+            try
+            {
+                _webDriver.FindElement(_textOutputField).SendKeys(text);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool TextButton(string inputField)
+        {
+            try
+            {
+                _webDriver.FindElement(_documentsButton).Click();
+                Expectation.WaitForElementClickable(_webDriver,_textButton);
+                _webDriver.FindElement(_textButton).Click();
+                Expectation.WaitForElementVisible(_webDriver, _textInputField);
+                _webDriver.FindElement(_textInputField).SendKeys(inputField);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public string AboutGoogleTranslateButton()
+        {
+             _webDriver.FindElement(_mainMenuButton).Click();
+             Expectation.WaitForElementVisible(_webDriver, _aboutGoogleTranslateButton);
+             _webDriver.FindElement(_aboutGoogleTranslateButton).Click();
+             return _webDriver.Url.ToString();
+        }
+
+        public string RulesAndPrinciplesButton()
+        {
+            _webDriver.FindElement(_mainMenuButton).Click();
+            Expectation.WaitForElementVisible(_webDriver, _rulesAndPrinciplesButton);
+            _webDriver.FindElement(_rulesAndPrinciplesButton).Click();
+            return _webDriver.Url.ToString();
+        }
+
+        public string SupportButton()
+        {
+            _webDriver.FindElement(_mainMenuButton).Click();
+            Expectation.WaitForElementVisible(_webDriver, _supportButton);
+            _webDriver.FindElement(_supportButton).Click();
+            return _webDriver.Url.ToString();
+        }
+
+        public string AboutGoogleButton()
+        {
+            _webDriver.FindElement(_mainMenuButton).Click();
+            Expectation.WaitForElementVisible(_webDriver, _aboutGoogleButton);
+            _webDriver.FindElement(_aboutGoogleButton).Click();
+            return _webDriver.Url.ToString();
+        }
+
+        public string TranslateToEnVirtKeyboard()
+        {
+            Expectation.WaitForElementClickable(_webDriver, _chooseInputTypeDropdown);
+            _webDriver.FindElement(_chooseInputTypeDropdown).Click();
+            Expectation.WaitForElementClickable(_webDriver, _inputUaVirtKeyboardButton);
+            _webDriver.FindElement(_inputUaVirtKeyboardButton).Click();
+            _webDriver.FindElement(_virtKeyboardInputUaCh).Click();
+            _webDriver.FindElement(_virtKeyboardInputUaA).Click();
+            _webDriver.FindElement(_virtKeyboardInputUaSh).Click();
+            _webDriver.FindElement(_virtKeyboardInputUaK).Click();
+            _webDriver.FindElement(_virtKeyboardInputUaA).Click();
+            Expectation.WaitForElementVisible(_webDriver, _textOutputField);
+            return _webDriver.FindElement(_textOutputField).Text;
         }
     }  
 }
