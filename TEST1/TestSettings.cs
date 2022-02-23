@@ -20,7 +20,6 @@ namespace GoogleTranslateTests
         public const string outputFieldExpectedEn = "cup";
         public const string outputFieldExpectedUa = "чашка";
         public const string inpFieldValueUa = "чашка";
-        public const string emptyField = "";
         public const string login = "testusersg810@gmail.com";
         public const string password = "<erjnhtqk2022";
 

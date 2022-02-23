@@ -9,7 +9,7 @@ namespace GoogleTranslateTests
     [TestFixture]
     public class Tests : BaseTest
     {
-        [Test, Order(0)]
+        [Test, Order(1)]
         [Description("EN to UA.Correct translation")]
         public void CorrectEnToUaCheck()
         {
@@ -19,7 +19,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult, "Incorrect translation");
         }
 
-        [Test, Order(1)]
+        [Test, Order(2)]
         [Description("EN to UA.Input fullfilled with random string")]
         public void RandomInputEnToUaCheck()
         {
@@ -30,7 +30,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(randomString, actualResult);
         }
 
-        [Test, Order(2)]
+        [Test, Order(3)]
         [Description("EN to UA.Input fullfilled with 5001 characters")]
         public void InputEnToUaOver5000CharCheck()
         {
@@ -41,7 +41,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.InputField5000Chars());
         }
 
-        [Test, Order(3)]
+        [Test, Order(4)]
         [Description("EN to UA.Input fullfilled with UA word")]
         public void UaTextIntoEnInputCheck()
         {
@@ -51,7 +51,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult.ToLower());
         }
 
-        [Test, Order(4)]
+        [Test, Order(5)]
         [Description("Check input symbols counter")]
         public void SymbolsCounterCheck()
         {
@@ -62,7 +62,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.numberForRandomString, mainPageObjects.CounterValue());
         }
 
-        [Test, Order(5)]
+        [Test, Order(6)]
         [Description("Check 'ExchangeLanguages' button")]
         public void ExchangeLanguagesButtonCheck()
         {
@@ -72,7 +72,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.hostPrefixUaToEn, url);
         }
 
-        [Test, Order(6)]
+        [Test, Order(7)]
         [Description("Check 'Clear input field' icon click")]
         public void ClearInputFieldIconCheck()
         {
@@ -80,10 +80,10 @@ namespace GoogleTranslateTests
             string actualResult = mainPageObjects.Translate(TestSettings.inpFieldValueEn);
             string inputFieldValue = mainPageObjects.ClearInputField();
 
-            Assert.AreEqual(TestSettings.emptyField, inputFieldValue);
+            Assert.IsEmpty(inputFieldValue);
         }
 
-        [Test, Order(7)]
+        [Test, Order(8)]
         [Description("Check definition area")]
         public void DefinitionAreaCheck()
         {
@@ -93,7 +93,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.DefinitionArea());
         }
 
-        [Test, Order(8)]
+        [Test, Order(9)]
         [Description("Check 'More definitions' button")]
         public void MoreDefinitionsButtonCheck()
         {
@@ -103,7 +103,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.ShowMoreDefinitionsButton());
         }
 
-        [Test, Order(9)]
+        [Test, Order(10)]
         [Description("Check 'Less definitions' button")]
         public void LessDefinitionsButtonCheck()
         {
@@ -113,7 +113,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.ShowLessDefinitionsButton());
         }
 
-        [Test, Order(10)]
+        [Test, Order(11)]
         [Description("Check examples area")]
         public void ExamplesAreaCheck()
         {
@@ -123,7 +123,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.ExamplesArea());
         }
 
-        [Test, Order(11)]
+        [Test, Order(12)]
         [Description("Check 'More examples' button")]
         public void MoreExamplesButtonCheck()
         {
@@ -133,7 +133,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.ShowMoreExamplesButton());
         }
 
-        [Test, Order(12)]
+        [Test, Order(13)]
         [Description("Check 'Less examples' button")]
         public void LessExamplesButtonCheck()
         {
@@ -143,7 +143,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.ShowLessExamplesButton());
         }
 
-        [Test, Order(13)]
+        [Test, Order(14)]
         [Description("Check 'Documents' button")]
         public void DocumentsButtonCheck()
         {
@@ -152,7 +152,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.DocumentsButton());
         }
 
-        [Test, Order(14)]
+        [Test, Order(15)]
         [Description("Check 'Text' button")]
         public void TextButtonCheck()
         {
@@ -161,7 +161,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.TextButton(TestSettings.inpFieldValueEn));
         }
 
-        [Test, Order(15)]
+        [Test, Order(16)]
         [Description("Check Virtual keyboard area")]
         public void VirtKeyboardAreaCheck()
         {
@@ -170,7 +170,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.VirtKeyBoardOnButton());
         }
 
-        [Test, Order(16)]
+        [Test, Order(17)]
         [Description("EN to UA.Correct translation virtual keyboard input")]
         public void CorrectEnToUaVirtKeyboardInputCheck()
         {
@@ -180,7 +180,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult, "Incorrect translation");
         }
 
-        [Test, Order(17)]
+        [Test, Order(18)]
         [Description("Check Login")]
         public void LoginCheck()
         {
@@ -189,7 +189,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.LoginButton());
         }
 
-        [Test, Order(18)]
+        [Test, Order(19)]
         [Description("Check 'Save translation' button")]
         public void SaveTranslationButtonCheck()
         {
@@ -199,7 +199,7 @@ namespace GoogleTranslateTests
             Assert.IsFalse(mainPageObjects.SaveTranslationButton());
         }
 
-        [Test, Order(19)]
+        [Test, Order(20)]
         [Description("Check 'Copy translation' button ")]
         public void CopyTranslationCheck()
         {
@@ -209,7 +209,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedUa, actualResult.ToLower(), "Incorrect translation");
         }
 
-        [Test, Order(20)]
+        [Test, Order(21)]
         [Description("Check Evaluate translation area")]
         public void EvaluateTranslationAreaCheck()
         {
@@ -219,7 +219,7 @@ namespace GoogleTranslateTests
             Assert.IsTrue(mainPageObjects.EvaluateTranslationArea());
         }
 
-        [Test, Order(21)]
+        [Test, Order(22)]
         [Description("Check 'Send translation' via Twitter")]
         public void SendTranslationTwitterCheck()
         {
@@ -229,7 +229,7 @@ namespace GoogleTranslateTests
             Assert.That(mainPageObjects.SendTranslationViaTwitter().Contains(TestSettings.twitterUrl));
         }
 
-        [Test, Order(22)]
+        [Test, Order(23)]
         [Description("Check 'History' button")]
         public void HistoryCheck()
         {
@@ -238,8 +238,7 @@ namespace GoogleTranslateTests
             Assert.IsFalse(mainPageObjects.HistoryArea());
         }
 
-        
-        [Test, Order(23)]
+        [Test, Order(24)]
         [Description("Check 'Saved translations' button")]
         public void SavedTranslationsCheck()
         {
@@ -249,7 +248,7 @@ namespace GoogleTranslateTests
             Assert.IsFalse(mainPageObjects.SavedTranslationsButton());
         }
 
-        [Test, Order(24)]
+        [Test, Order(25)]
         [Description("Check 'Contribute' button")]
         public void ContributeCheck()
         {
@@ -259,7 +258,7 @@ namespace GoogleTranslateTests
             Assert.IsFalse(mainPageObjects.ContributeButton());
         }
 
-        [Test, Order(25)]
+        [Test, Order(26)]
         [Description("UA to EN.Correct translation")]
         public void CorrectUaToEnCheck()
         {
@@ -270,7 +269,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedEn, actualResult, "Incorrect translation");
         }
 
-        [Test, Order(26)]
+        [Test, Order(27)]
         [Description("UA to En.Correct translation virtual keyboard input")]
         public void CorrectUaToEnVirtKeyboardInputCheck()
         {
@@ -281,7 +280,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.outputFieldExpectedEn, actualResult, "Incorrect translation");
         }
 
-        [Test, Order(27)]
+        [Test, Order(28)]
         [Description("Translation field not editable")]
         public void InputIntoTranslationFieldCheck()
         {
@@ -290,7 +289,7 @@ namespace GoogleTranslateTests
             Assert.IsFalse(mainPageObjects.InputIntoTranslationField(TestSettings.inpFieldValueEn));
         }
 
-        [Test, Order(28)]
+        [Test, Order(29)]
         [Description("Check 'About Google Translate' button")]
         public void AboutGoogleTranslateButtonCheck()
         {
@@ -299,7 +298,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.aboutGoogleTranslateUrl,mainPageObjects.AboutGoogleTranslateButton(),"Urls don't match");
         }
 
-        [Test, Order(29)]
+        [Test, Order(30)]
         [Description("Check 'Rules and Principles' button")]
         public void RulesAndPrinciplesButtonCheck()
         {
@@ -308,7 +307,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.rulesAndPrinciplesUrl, mainPageObjects.RulesAndPrinciplesButton(), "Urls don't match");
         }
 
-        [Test, Order(30)]
+        [Test, Order(31)]
         [Description("Check 'Support' button")]
         public void SupportButtonCheck()
         {
@@ -317,7 +316,7 @@ namespace GoogleTranslateTests
             Assert.AreEqual(TestSettings.supportUrl, mainPageObjects.SupportButton(), "Urls don't match");
         }
 
-        [Test, Order(31)]
+        [Test, Order(32)]
         [Description("Check 'About Google' button")]
         public void AboutGoogleButtonCheck()
         {
